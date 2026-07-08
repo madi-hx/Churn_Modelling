@@ -3,15 +3,11 @@ import streamlit as st
 import numpy as np
 from tensorflow import keras
 import joblib
+import pickle
 
 # Load ANN model
-try:
-    model = keras.models.load_model("churn_ann_model.keras")
-    st.success("Model loaded successfully!")
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-    st.stop()
-
+with open("churn_modelling.pkl", "rb") as f:
+    model = pickle.load(f)
 # Load scaler
 scaler = joblib.load("scaler.pkl")
 
