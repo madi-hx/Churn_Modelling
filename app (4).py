@@ -5,7 +5,12 @@ from tensorflow import keras
 import joblib
 
 # Load ANN model
-model = keras.models.load_model("churn_ann_model.keras")
+try:
+    model = keras.models.load_model("churn_ann_model.keras")
+    st.success("Model loaded successfully!")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
 # Load scaler
 scaler = joblib.load("scaler.pkl")
