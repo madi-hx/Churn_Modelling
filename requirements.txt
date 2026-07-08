@@ -1,8 +1,7 @@
 streamlit
-tensorflow==2.16.1
-keras==3.3.3
+tensorflow
+keras
 numpy
 pandas
 scikit-learn
-joblib
-h5py
+
